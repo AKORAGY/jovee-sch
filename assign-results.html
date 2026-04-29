@@ -9,9 +9,12 @@
 <header><h2>Assign Results</h2></header>
 
 <div class="card">
-<select id="studentSelect"></select>
+<select id="studentSelect" onchange="loadStudentCourses()"></select>
 
-<input type="text" id="courseName" placeholder="Course">
+<select id="courseSelect">
+    <option>Select Course</option>
+</select>
+
 <input type="text" id="grade" placeholder="Grade">
 
 <button onclick="assignResult()">Assign</button>
