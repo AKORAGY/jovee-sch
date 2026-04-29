@@ -58,7 +58,7 @@ if (document.getElementById("loginForm")) {
             localStorage.setItem("currentUser", JSON.stringify(user));
 
             window.location.href =
-                user.role === "admin" ? "admin.html" : "student.html";
+                user.role === "admin" ? "admin.html" : "Student.html";
         } else {
             alert("Invalid login");
         }
