@@ -58,7 +58,7 @@ if (document.getElementById("loginForm")) {
             localStorage.setItem("currentUser", JSON.stringify(user));
 
             window.location.href =
-                user.role === "admin" ? "admin.html" : "Student.html";
+                user.role === "admin" ? "admin.html" : "student.html";
         } else {
             alert("Invalid login");
         }
@@ -256,8 +256,14 @@ if (document.getElementById("resultsList")) {
 // ==========================
 // ADMIN ASSIGN RESULTS
 // ==========================
-if (document.getElementById("studentSelect")) {
+function loadStudentsDropdown() {
+    let select = document.getElementById("studentSelect");
+    if (!select) return;
+
     let users = getUsers();
+
+    // 🔥 clear old list first
+    select.innerHTML = "";
 
     users
         .filter(u => u.role === "student")
@@ -265,25 +271,54 @@ if (document.getElementById("studentSelect")) {
             let option = document.createElement("option");
             option.value = u.email;
             option.textContent = u.name;
-            studentSelect.appendChild(option);
+            select.appendChild(option);
         });
 }
 
+// RUN WHEN PAGE LOADS
+if (document.getElementById("studentSelect")) {
+    loadStudentsDropdown();
+}
 function assignResult() {
+    let email = document.getElementById("studentSelect").value;
+    let course = document.getElementById("courseSelect").value;
+    let grade = document.getElementById("grade").value;
+
     let users = getUsers();
-    let student = users.find(u => u.email === studentSelect.value);
+    let student = users.find(u => u.email === email);
 
     if (!student.results) student.results = [];
 
-    student.results.push({
-        course: courseName.value,
-        grade: grade.value
-    });
+    student.results.push({ course, grade });
 
     saveUsers(users);
-    alert("Result assigned!");
+
+    alert("Result assigned successfully!");
+    // 🔥 refresh dropdown (important)
+    loadStudentsDropdown();
 }
 
+function loadStudentCourses() {
+    let email = document.getElementById("studentSelect").value;
+    let courseSelect = document.getElementById("courseSelect");
+
+    let users = getUsers();
+    let student = users.find(u => u.email === email);
+
+    courseSelect.innerHTML = "";
+
+    if (!student || !student.courses || student.courses.length === 0) {
+        courseSelect.innerHTML = "<option>No enrolled courses</option>";
+        return;
+    }
+
+    student.courses.forEach(c => {
+        let option = document.createElement("option");
+        option.value = c;
+        option.textContent = c;
+        courseSelect.appendChild(option);
+    });
+}
 // ==========================
 // ASSIGNMENTS
 // ==========================
