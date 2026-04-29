@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard</title>
+<link rel="stylesheet" href="st.css">
+</head>
+<body>
+    <div id="loader">
+  <div class="loader-box">
+    <h2>JOVE E-SCHOOL: STUDENTS PORTAL</h2>
+    <div class="progress-bar">
+      <div id="progress"></div>
+    </div>
+    <p id="percent">0%</p>
+  </div>
+</div>
+
+<header>
+<h2>Student Dashboard</h2>
+</header>
+
+<h2><p id="welcome"></p></h2>
+
+
+<div class="card">
+
+<h2><a href="course.html"> My Courses</a></h2>
+
+<h3>📚 Enroll Courses</h3>
+<ul id="courseList"></ul>
+</div>
+
+
+<div class="card">
+
+  <h3>📚 Course Progress</h3>
+<p id="progressText"></p>
+
+<div>
+  <div id="progressBar"></div>
+</div>
+
+<h3>📊 My Results</h3>
+<ul id="resultsList"></ul>
+</div>
+
+<div class="card">
+<h3>📝 Upload Assignment</h3>
+<div class="put">
+<label for="assignmentFile">Select assignment file</label>
+<input type="file" id="assignmentFile">
+</div>
+<button onclick="uploadAssignment()">Upload</button>
+
+
+</div>
+
+
+<button class="red" onclick="logout()">Logout</button>
+
+
+<script src="app.js"></script>
+</body>
+</html>

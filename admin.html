@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="st.css">
+</head>
+<body>
+   <div id="loader">
+  <div class="loader-box"
+    <h2>JOVE E-SCHOOL: ADMIN</h2>
+    <div class="progress-bar">
+      <div id="progress"></div>
+    </div>
+    <p id="percent">0%</p>
+  </div>
+</div>
+
+<header>
+<h2>Admin Dashboard</h2>
+</header>
+
+<div class="card">
+<p id="adminWelcome"></p>
+
+<h3>Admin Tools</h3>
+
+<a href="assign-results.html"><button>Assign Results</button></a>
+<a href="view-assignments.html"><button>View Assignments</button></a>
+<a href="stats.html"><button>View Stats</button></a>
+<a href="manage-courses.html"><button>Manage Courses</button></a>
+<h3>🔍 Search Users</h3>
+<input type="text" id="search" placeholder="Search by name">
+<button onclick="searchUser()">Search</button>
+
+
+<h3>Registered Users</h3>
+<ul id="userList"></ul>
+
+<button class="red" onclick="logout()">Logout</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

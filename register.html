@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="st.css">
+</head>
+<body>
+ <div id="loader">
+  <div class="loader-box"
+    <h2>JOVE E-SCHOOL: REGISTER</h2>
+    <div class="progress-bar">
+      <div id="progress"></div>
+    </div>
+    <p id="percent">0%</p>
+  </div>
+</div>
+
+
+<div class="card">
+<h2>Register</h2>
+
+<form id="registerForm">
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<input type="password" id="password" placeholder="Password" required>
+
+<select id="role">
+<option value="student">Student</option>
+<option value="admin">Admin</option>
+</select>
+
+<button class="green">Register</button>
+<p>
+  <a href="login.html">I am already registered</a>
+</p>
+
+</form>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
